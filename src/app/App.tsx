@@ -143,7 +143,11 @@ function Nav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-white/[0.06] px-6 py-4 flex flex-col gap-4"
+            className={`md:hidden border-t px-6 py-4 flex flex-col gap-4 ${
+              scrolled 
+                ? "border-white/[0.06]" 
+                : "border-white/[0.12] bg-[#1F1F1F]/95 backdrop-blur-2xl rounded-b-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+            }`}
           >
             {links.map((l) => (
               <a
@@ -155,7 +159,11 @@ function Nav() {
                 {l.label}
               </a>
             ))}
-            <a href="#contact" className="text-sm text-[#3B82F6] font-semibold font-['Inter']">
+            <a 
+              href="#contact" 
+              className="text-sm text-[#3B82F6] font-semibold font-['Inter']"
+              onClick={() => setOpen(false)}
+            >
               Hire Me →
             </a>
           </motion.div>
