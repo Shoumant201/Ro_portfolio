@@ -2,83 +2,109 @@
 
 :root {
   --font-size: 16px;
-  --background: #080c14;
-  --foreground: #f1f5f9;
-  --card: #0d1220;
-  --card-foreground: #f1f5f9;
-  --popover: #0d1220;
-  --popover-foreground: #f1f5f9;
-  --primary: #38bdf8;
-  --primary-foreground: #020617;
-  --secondary: #0f172a;
-  --secondary-foreground: #e2e8f0;
-  --muted: #0f172a;
-  --muted-foreground: #64748b;
-  --accent: #818cf8;
-  --accent-foreground: #eef2ff;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: rgba(148, 163, 184, 0.08);
-  --input: rgba(148, 163, 184, 0.08);
-  --input-background: #0f172a;
-  --switch-background: #1e293b;
+  
+  /* Dark background matching the design system */
+  --background: #1F1F1F;
+  --foreground: #FFFFFF;
+  
+  /* Slightly lighter surfaces for cards */
+  --card: #2F2F2F;
+  --card-foreground: #FFFFFF;
+  --popover: #2F2F2F;
+  --popover-foreground: #FFFFFF;
+  
+  /* Primary blue from the palette */
+  --primary: #3B82F6;
+  --primary-foreground: #1F1F1F;
+  
+  /* Secondary gray surfaces */
+  --secondary: #3A3A3A;
+  --secondary-foreground: #FFFFFF;
+  
+  /* Muted dark grays */
+  --muted: #2A2A2A;
+  --muted-foreground: #9CA3AF;
+  
+  /* Light blue accent */
+  --accent: #60A5FA;
+  --accent-foreground: #1F1F1F;
+  
+  /* Error/destructive state */
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  
+  /* Subtle borders */
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.1);
+  --input-background: #2F2F2F;
+  --switch-background: #3A3A3A;
+  
+  /* Typography weights */
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #38bdf8;
-  --chart-1: #38bdf8;
-  --chart-2: #818cf8;
-  --chart-3: #22c55e;
-  --chart-4: #f59e0b;
-  --chart-5: #f472b6;
-  --radius: 1rem;
-  --sidebar: #0d1220;
-  --sidebar-foreground: #f1f5f9;
-  --sidebar-primary: #38bdf8;
-  --sidebar-primary-foreground: #020617;
-  --sidebar-accent: #0f172a;
-  --sidebar-accent-foreground: #e2e8f0;
-  --sidebar-border: rgba(148, 163, 184, 0.08);
-  --sidebar-ring: #38bdf8;
+  
+  /* Ring for focus states - blue */
+  --ring: #3B82F6;
+  
+  /* Chart colors with blue theme */
+  --chart-1: #3B82F6;
+  --chart-2: #60A5FA;
+  --chart-3: #818CF8;
+  --chart-4: #93C5FD;
+  --chart-5: #BFDBFE;
+  
+  --radius: 0.75rem;
+  
+  /* Sidebar colors */
+  --sidebar: #2A2A2A;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #3B82F6;
+  --sidebar-primary-foreground: #1F1F1F;
+  --sidebar-accent: #2F2F2F;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #3B82F6;
 }
 
 .dark {
-  --background: #080c14;
-  --foreground: #f1f5f9;
-  --card: #0d1220;
-  --card-foreground: #f1f5f9;
-  --popover: #0d1220;
-  --popover-foreground: #f1f5f9;
-  --primary: #38bdf8;
-  --primary-foreground: #020617;
-  --secondary: #0f172a;
-  --secondary-foreground: #e2e8f0;
-  --muted: #0f172a;
-  --muted-foreground: #64748b;
-  --accent: #818cf8;
-  --accent-foreground: #eef2ff;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: rgba(148, 163, 184, 0.08);
-  --input: rgba(148, 163, 184, 0.08);
-  --input-background: #0f172a;
-  --switch-background: #1e293b;
+  /* Same values - dark theme is default */
+  --background: #1F1F1F;
+  --foreground: #FFFFFF;
+  --card: #2F2F2F;
+  --card-foreground: #FFFFFF;
+  --popover: #2F2F2F;
+  --popover-foreground: #FFFFFF;
+  --primary: #3B82F6;
+  --primary-foreground: #1F1F1F;
+  --secondary: #3A3A3A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2A2A2A;
+  --muted-foreground: #9CA3AF;
+  --accent: #60A5FA;
+  --accent-foreground: #1F1F1F;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.1);
+  --input-background: #2F2F2F;
+  --switch-background: #3A3A3A;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #38bdf8;
-  --chart-1: #38bdf8;
-  --chart-2: #818cf8;
-  --chart-3: #22c55e;
-  --chart-4: #f59e0b;
-  --chart-5: #f472b6;
-  --radius: 1rem;
-  --sidebar: #0d1220;
-  --sidebar-foreground: #f1f5f9;
-  --sidebar-primary: #38bdf8;
-  --sidebar-primary-foreground: #020617;
-  --sidebar-accent: #0f172a;
-  --sidebar-accent-foreground: #e2e8f0;
-  --sidebar-border: rgba(148, 163, 184, 0.08);
-  --sidebar-ring: #38bdf8;
+  --ring: #3B82F6;
+  --chart-1: #3B82F6;
+  --chart-2: #60A5FA;
+  --chart-3: #818CF8;
+  --chart-4: #93C5FD;
+  --chart-5: #BFDBFE;
+  --radius: 0.75rem;
+  --sidebar: #2A2A2A;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #3B82F6;
+  --sidebar-primary-foreground: #1F1F1F;
+  --sidebar-accent: #2F2F2F;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #3B82F6;
 }
 
 @theme inline {
@@ -129,31 +155,62 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #1F1F1F;
+    color: #FFFFFF;
   }
 
   html {
     font-size: var(--font-size);
     scroll-behavior: smooth;
+    background-color: #1F1F1F;
   }
 
+  /* Custom scrollbar with blue accent */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #1F1F1F;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.15);
-    border-radius: 3px;
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(148, 163, 184, 0.25);
+    background: rgba(59, 130, 246, 0.5);
   }
 
-  h1, h2, h3, h4, h5 {
-    font-family: "Space Grotesk", sans-serif;
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Space Grotesk", -apple-system, sans-serif;
     font-weight: 600;
-    line-height: 1.1;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+  }
+
+  /* Link styles with blue hover */
+  a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: #3B82F6;
+  }
+
+  /* Selection with blue */
+  ::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: #FFFFFF;
+  }
+
+  /* Code and pre blocks */
+  code, pre {
+    font-family: "Fira Code", "JetBrains Mono", Consolas, monospace;
+    background: #2F2F2F;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 }

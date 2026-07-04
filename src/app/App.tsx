@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "motion/react";
+import emailjs from '@emailjs/browser';
 import {
   Menu, X, Github, Linkedin, Mail, ExternalLink,
   ChevronDown, Cpu, Code2, Layers, Terminal,
@@ -38,8 +39,8 @@ function Reveal({
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="inline-flex items-center gap-3 mb-6">
-      <span className="w-6 h-px bg-[#38bdf8]" />
-      <span className="text-[#38bdf8] text-xs font-mono font-medium tracking-[0.2em] uppercase">
+      <span className="w-6 h-px bg-[#3B82F6]" />
+      <span className="text-[#3B82F6] text-xs font-mono font-medium tracking-[0.2em] uppercase">
         {children}
       </span>
     </div>
@@ -47,7 +48,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 // Blueprint grid pattern as inline SVG background
-const blueprintBg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%2338bdf8' stroke-opacity='0.04' stroke-width='0.5'/%3E%3C/svg%3E")`;
+const blueprintBg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%2300d9ff' stroke-opacity='0.04' stroke-width='0.5'/%3E%3C/svg%3E")`;
 
 // ─── Navigation ──────────────────────────────────────────────────────────────
 
@@ -79,7 +80,7 @@ function Nav() {
       <div
         className={`rounded-2xl transition-all duration-500 ${
           scrolled
-            ? "bg-[#080c14]/85 backdrop-blur-2xl border border-white/[0.07] shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
+            ? "bg-[#1F1F1F]/90 backdrop-blur-2xl border border-white/[0.12] shadow-[0_8px_40px_rgba(0,0,0,0.6),0_0_80px_rgba(59,130,246,0.03)]"
             : "bg-transparent"
         }`}
       >
@@ -88,9 +89,8 @@ function Nav() {
             href="#"
             className="font-['Space_Grotesk'] font-bold text-lg tracking-tight text-white"
           >
-            <span className="text-[#38bdf8]">KAI</span>
-            <span className="text-white/40 font-light mx-1">/</span>
-            <span className="text-white/80 font-medium">NAKAMURA</span>
+            <span className="text-[#3B82F6]">$ </span>
+            <span className="text-white font-medium">shoumant_khadka</span>
           </a>
 
           <div className="hidden md:flex items-center gap-7">
@@ -107,7 +107,7 @@ function Nav() {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://github.com"
+              href="https://github.com/Shoumant201"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-white/40 hover:text-white transition-colors"
@@ -115,7 +115,7 @@ function Nav() {
               <Github size={17} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/shoumant-khadka/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-white/40 hover:text-white transition-colors"
@@ -124,7 +124,7 @@ function Nav() {
             </a>
             <a
               href="#contact"
-              className="px-5 py-2 bg-[#38bdf8] text-[#020617] text-sm font-semibold rounded-xl hover:bg-[#7dd3fc] transition-all duration-200 font-['Inter'] ml-2"
+              className="px-5 py-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-sm font-semibold rounded-xl hover:from-[#60A5FA] hover:to-[#3B82F6] transition-all duration-200 font-['Inter'] ml-2 shadow-[0_4px_16px_rgba(59,130,246,0.4)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.5)]"
             >
               Hire Me
             </a>
@@ -155,7 +155,7 @@ function Nav() {
                 {l.label}
               </a>
             ))}
-            <a href="#contact" className="text-sm text-[#38bdf8] font-semibold font-['Inter']">
+            <a href="#contact" className="text-sm text-[#3B82F6] font-semibold font-['Inter']">
               Hire Me →
             </a>
           </motion.div>
@@ -170,8 +170,8 @@ function Nav() {
 function HexapodViz() {
   return (
     <div className="relative w-full max-w-[500px] aspect-square select-none">
-      <div className="absolute inset-[-20%] rounded-full bg-[#38bdf8]/[0.06] blur-3xl pointer-events-none" />
-      <div className="absolute inset-[10%] rounded-full bg-[#818cf8]/[0.04] blur-2xl pointer-events-none" />
+      <div className="absolute inset-[-20%] rounded-full bg-[#3B82F6]/[0.06] blur-3xl pointer-events-none" />
+      <div className="absolute inset-[10%] rounded-full bg-[#818CF8]/[0.04] blur-2xl pointer-events-none" />
       <svg
         viewBox="0 0 500 500"
         className="w-full h-full"
@@ -179,12 +179,12 @@ function HexapodViz() {
       >
         <defs>
           <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+            <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="legGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.5" />
+            <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#818CF8" stopOpacity="0.5" />
           </linearGradient>
           <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#0d1a2e" />
@@ -210,7 +210,7 @@ function HexapodViz() {
         <circle cx="250" cy="250" r="240" fill="url(#bgGlow)" />
 
         {/* Circuit traces */}
-        <g stroke="#38bdf8" strokeWidth="0.75" fill="none" opacity="0.18">
+        <g stroke="#3B82F6" strokeWidth="0.75" fill="none" opacity="0.18">
           {[0, 72, 144, 216, 288].map((a, i) => {
             const r = (a * Math.PI) / 180;
             return (
@@ -236,7 +236,7 @@ function HexapodViz() {
         >
           <circle
             cx="250" cy="250" r="225"
-            stroke="#38bdf8" strokeWidth="0.75"
+            stroke="#3B82F6" strokeWidth="0.75"
             strokeOpacity="0.25" fill="none"
             strokeDasharray="3 10"
           />
@@ -247,7 +247,7 @@ function HexapodViz() {
                 key={i}
                 x1={250 + 218 * Math.cos(a)} y1={250 + 218 * Math.sin(a)}
                 x2={250 + 225 * Math.cos(a)} y2={250 + 225 * Math.sin(a)}
-                stroke="#38bdf8" strokeWidth="0.75" strokeOpacity={i % 3 === 0 ? 0.5 : 0.2}
+                stroke="#3B82F6" strokeWidth="0.75" strokeOpacity={i % 3 === 0 ? 0.5 : 0.2}
               />
             );
           })}
@@ -256,7 +256,7 @@ function HexapodViz() {
         {/* Mid ring — counter-rotate */}
         <motion.circle
           cx="250" cy="250" r="185"
-          stroke="#818cf8" strokeWidth="0.5"
+          stroke="#818CF8" strokeWidth="0.5"
           strokeOpacity="0.2" fill="none"
           strokeDasharray="2 9"
           animate={{ rotate: -360 }}
@@ -273,14 +273,14 @@ function HexapodViz() {
           return (
             <g key={i} filter="url(#nodeGlow)">
               <line x1={hip.x} y1={hip.y} x2={knee.x} y2={knee.y}
-                stroke="#38bdf8" strokeWidth="2" strokeOpacity="0.7" />
+                stroke="#3B82F6" strokeWidth="2" strokeOpacity="0.7" />
               <line x1={knee.x} y1={knee.y} x2={foot.x} y2={foot.y}
-                stroke="#818cf8" strokeWidth="1.5" strokeOpacity="0.5" />
+                stroke="#818CF8" strokeWidth="1.5" strokeOpacity="0.5" />
               <circle cx={knee.x} cy={knee.y} r="5"
-                fill="#080c14" stroke="#38bdf8" strokeWidth="1.5" />
+                fill="#1F1F1F" stroke="#3B82F6" strokeWidth="1.5" />
               <motion.circle
                 cx={foot.x} cy={foot.y} r="4.5"
-                fill="#38bdf8"
+                fill="#3B82F6"
                 animate={{ opacity: [0.4, 1, 0.4], r: [4, 5, 4] }}
                 transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.4 }}
               />
@@ -292,14 +292,14 @@ function HexapodViz() {
         <motion.polygon
           points="250,178 316,214 316,286 250,322 184,286 184,214"
           fill="url(#bodyGrad)"
-          stroke="#38bdf8" strokeWidth="1.5"
+          stroke="#3B82F6" strokeWidth="1.5"
           filter="url(#bodyGlow)"
           animate={{ opacity: [0.9, 1, 0.9] }}
           transition={{ duration: 5, repeat: Infinity }}
         />
 
         {/* Body interior grid */}
-        <g stroke="#38bdf8" strokeWidth="0.5" strokeOpacity="0.15" fill="none">
+        <g stroke="#3B82F6" strokeWidth="0.5" strokeOpacity="0.15" fill="none">
           <line x1="200" y1="234" x2="300" y2="234" />
           <line x1="200" y1="266" x2="300" y2="266" />
           <line x1="228" y1="210" x2="228" y2="290" />
@@ -311,14 +311,14 @@ function HexapodViz() {
           <rect key={i}
             x={i < 2 ? 246 : 246} y={y - 3}
             width="8" height="6" rx="1"
-            fill="#38bdf8" fillOpacity="0.5"
+            fill="#3B82F6" fillOpacity="0.5"
           />
         ))}
 
         {/* Head / sensor dome */}
         <g filter="url(#nodeGlow)">
-          <circle cx="250" cy="213" r="26" fill="#0a0f1e" stroke="#38bdf8" strokeWidth="1.5" />
-          <circle cx="250" cy="213" r="17" fill="none" stroke="#38bdf8" strokeWidth="0.75" strokeOpacity="0.4" strokeDasharray="2 3" />
+          <circle cx="250" cy="213" r="26" fill="#0a0f1e" stroke="#3B82F6" strokeWidth="1.5" />
+          <circle cx="250" cy="213" r="17" fill="none" stroke="#3B82F6" strokeWidth="0.75" strokeOpacity="0.4" strokeDasharray="2 3" />
 
           {/* Radar sweep */}
           <motion.g
@@ -327,19 +327,19 @@ function HexapodViz() {
             style={{ transformOrigin: "250px 213px" }}
           >
             <path d="M250,213 L250,197 A16,16 0 0,1 264,221 Z"
-              fill="#38bdf8" fillOpacity="0.2" />
+              fill="#3B82F6" fillOpacity="0.2" />
             <line x1="250" y1="213" x2="250" y2="196"
-              stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.8" />
+              stroke="#3B82F6" strokeWidth="1.5" strokeOpacity="0.8" />
           </motion.g>
 
-          <circle cx="250" cy="213" r="3.5" fill="#38bdf8" />
+          <circle cx="250" cy="213" r="3.5" fill="#3B82F6" />
         </g>
 
         {/* Status LEDs */}
         {[
           { cx: 215, cy: 258, color: "#22c55e", d: 0 },
           { cx: 250, cy: 270, color: "#f59e0b", d: 0.7 },
-          { cx: 285, cy: 258, color: "#38bdf8", d: 1.4 },
+          { cx: 285, cy: 258, color: "#3B82F6", d: 1.4 },
         ].map((led, i) => (
           <motion.circle
             key={i}
@@ -360,20 +360,20 @@ function HexapodViz() {
               <motion.circle
                 cx={250 + r * Math.cos(a)} cy={250 + r * Math.sin(a)}
                 r="5" fill="none"
-                stroke="#818cf8" strokeWidth="1.5"
+                stroke="#818CF8" strokeWidth="1.5"
                 animate={{ opacity: [0.2, 0.8, 0.2] }}
                 transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
               />
               <circle
                 cx={250 + r * Math.cos(a)} cy={250 + r * Math.sin(a)}
-                r="2" fill="#818cf8" fillOpacity="0.5"
+                r="2" fill="#818CF8" fillOpacity="0.5"
               />
             </motion.g>
           );
         })}
 
         {/* HUD readouts */}
-        <g fontFamily="'JetBrains Mono', monospace" fontSize="7.5" fill="#38bdf8" fillOpacity="0.55">
+        <g fontFamily="'JetBrains Mono', monospace" fontSize="7.5" fill="#3B82F6" fillOpacity="0.55">
           <text x="22" y="65">SYS: ONLINE</text>
           <text x="22" y="78">TEMP: 41.2°C</text>
           <text x="22" y="91">BAT: 97.8%</text>
@@ -397,7 +397,7 @@ function HexapodViz() {
             <motion.circle
               key={i}
               r="2.5"
-              fill="#38bdf8"
+              fill="#3B82F6"
               filter="url(#nodeGlow)"
               animate={{
                 cx: [startX, endX, startX],
@@ -422,8 +422,8 @@ function Hero() {
       style={{ backgroundImage: blueprintBg }}
     >
       {/* Ambient gradients */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-[#38bdf8]/[0.04] blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#818cf8]/[0.05] blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-[#3B82F6]/[0.04] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#818CF8]/[0.05] blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center">
         {/* Left content */}
@@ -432,11 +432,11 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-[#38bdf8]/25 bg-[#38bdf8]/[0.06]"
+            className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-[#3B82F6]/30 bg-gradient-to-r from-[#3B82F6]/[0.1] to-[#3B82F6]/[0.06] shadow-[0_0_20px_rgba(59,130,246,0.15)] backdrop-blur-sm"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] animate-pulse" />
-            <span className="text-[#38bdf8] text-xs font-mono font-medium tracking-widest uppercase">
-              Available for roles · San Francisco
+            <span className="text-[#3B82F6] text-xs font-mono font-medium tracking-widest uppercase">
+              Available for roles · Kathmandu, Nepal
             </span>
           </motion.div>
 
@@ -447,7 +447,7 @@ function Hero() {
             className="text-5xl md:text-6xl xl:text-[68px] font-['Space_Grotesk'] font-bold leading-[1.04] tracking-[-0.02em] text-white mb-6"
           >
             Building{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#818cf8]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#818CF8]">
               Intelligent
             </span>
             <br />
@@ -481,7 +481,7 @@ function Hero() {
           >
             <a
               href="#work"
-              className="px-7 py-3.5 bg-[#38bdf8] text-[#020617] font-['Inter'] font-semibold rounded-2xl hover:bg-[#7dd3fc] transition-all duration-200 text-sm inline-flex items-center gap-2 group shadow-[0_0_30px_rgba(56,189,248,0.3)]"
+              className="px-7 py-3.5 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-['Inter'] font-semibold rounded-2xl hover:from-[#60A5FA] hover:to-[#3B82F6] transition-all duration-200 text-sm inline-flex items-center gap-2 group shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_40px_rgba(59,130,246,0.5)]"
             >
               View Projects
               <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -519,7 +519,7 @@ function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex justify-center"
+          className="flex justify-center items-center"
         >
           <HexapodViz />
         </motion.div>
@@ -562,13 +562,22 @@ function ProjectCard({ project }: { project: Project }) {
     <section id="work" className="py-20 md:py-28 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className={`grid md:grid-cols-2 gap-12 lg:gap-20 items-center ${project.reversed ? "md:[&>*:first-child]:order-2" : ""}`}>
-          {/* Visual panel */}
-          <Reveal className="rounded-2xl overflow-hidden border border-white/[0.07] bg-[#0d1220] aspect-[4/3] flex items-center justify-center relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#38bdf8]/[0.03] to-[#818cf8]/[0.03]" />
+          {/* Visual panel - Enhanced with gradients and glow */}
+          <Reveal className="rounded-2xl overflow-hidden border border-white/[0.12] bg-gradient-to-br from-[#2F2F2F] via-[#2A2A2A] to-[#252525] aspect-[4/3] flex items-center justify-center relative group shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_48px_rgba(59,130,246,0.15)] transition-all duration-500">
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/[0.08] via-transparent to-[#818CF8]/[0.06]" />
+            {/* Mesh gradient effect */}
+            <div className="absolute inset-0 opacity-30" style={{
+              backgroundImage: `radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(129, 140, 248, 0.1) 0%, transparent 50%)`
+            }} />
             {project.visual}
+            {/* Animated border on hover */}
             <motion.div
-              className="absolute inset-0 border border-[#38bdf8]/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute inset-0 border-2 border-[#3B82F6]/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             />
+            {/* Corner accents */}
+            <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#3B82F6]/40 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-[#3B82F6]/40 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Reveal>
 
           {/* Text */}
@@ -587,7 +596,7 @@ function ProjectCard({ project }: { project: Project }) {
             <Reveal delay={0.32}>
               <div className="flex flex-wrap gap-2 mb-8">
                 {project.tags.map((t) => (
-                  <span key={t} className="px-3 py-1 text-xs font-mono text-[#38bdf8] border border-[#38bdf8]/25 rounded-full bg-[#38bdf8]/[0.06]">
+                  <span key={t} className="px-3 py-1.5 text-xs font-mono text-[#3B82F6] border border-[#3B82F6]/30 rounded-full bg-[#3B82F6]/[0.08] hover:bg-[#3B82F6]/[0.15] hover:border-[#3B82F6]/50 transition-all duration-200 cursor-default">
                     {t}
                   </span>
                 ))}
@@ -616,50 +625,50 @@ function RobotArmSVG() {
     <svg viewBox="0 0 400 300" className="w-full h-full p-8" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="armGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#818cf8" stopOpacity="0.7" />
+          <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#818CF8" stopOpacity="0.7" />
         </linearGradient>
       </defs>
       {/* Base */}
-      <rect x="160" y="255" width="80" height="30" rx="6" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
-      <rect x="175" y="240" width="50" height="20" rx="4" fill="#0f172a" stroke="#38bdf8" strokeWidth="1" />
+      <rect x="160" y="255" width="80" height="30" rx="6" fill="#3A3A3A" stroke="#3B82F6" strokeWidth="1.5" />
+      <rect x="175" y="240" width="50" height="20" rx="4" fill="#3A3A3A" stroke="#3B82F6" strokeWidth="1" />
       {/* Shoulder */}
-      <circle cx="200" cy="235" r="14" fill="#0d1a2e" stroke="#38bdf8" strokeWidth="1.5" />
+      <circle cx="200" cy="235" r="14" fill="#0d1a2e" stroke="#3B82F6" strokeWidth="1.5" />
       {/* Upper arm */}
       <motion.g style={{ transformOrigin: "200px 235px" }}
         animate={{ rotate: [0, -15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
-        <rect x="192" y="175" width="16" height="65" rx="8" fill="#0f172a" stroke="url(#armGrad)" strokeWidth="1.5" />
+        <rect x="192" y="175" width="16" height="65" rx="8" fill="#3A3A3A" stroke="url(#armGrad)" strokeWidth="1.5" />
         {/* Elbow */}
-        <circle cx="200" cy="175" r="11" fill="#0d1a2e" stroke="#38bdf8" strokeWidth="1.5" />
+        <circle cx="200" cy="175" r="11" fill="#0d1a2e" stroke="#3B82F6" strokeWidth="1.5" />
         {/* Forearm */}
         <motion.g style={{ transformOrigin: "200px 175px" }}
           animate={{ rotate: [0, 20, 0] }} transition={{ duration: 6, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}>
-          <rect x="194" y="125" width="12" height="55" rx="6" fill="#0f172a" stroke="#818cf8" strokeWidth="1.5" />
+          <rect x="194" y="125" width="12" height="55" rx="6" fill="#3A3A3A" stroke="#818CF8" strokeWidth="1.5" />
           {/* Wrist */}
-          <circle cx="200" cy="125" r="9" fill="#0d1a2e" stroke="#818cf8" strokeWidth="1.5" />
+          <circle cx="200" cy="125" r="9" fill="#0d1a2e" stroke="#818CF8" strokeWidth="1.5" />
           {/* End effector */}
           <motion.g style={{ transformOrigin: "200px 125px" }}
             animate={{ rotate: [0, 30, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 1, ease: "easeInOut" }}>
-            <line x1="200" y1="125" x2="185" y2="105" stroke="#38bdf8" strokeWidth="2" />
-            <line x1="200" y1="125" x2="215" y2="105" stroke="#38bdf8" strokeWidth="2" />
-            <circle cx="185" cy="102" r="4" fill="#38bdf8" />
-            <circle cx="215" cy="102" r="4" fill="#38bdf8" />
+            <line x1="200" y1="125" x2="185" y2="105" stroke="#3B82F6" strokeWidth="2" />
+            <line x1="200" y1="125" x2="215" y2="105" stroke="#3B82F6" strokeWidth="2" />
+            <circle cx="185" cy="102" r="4" fill="#3B82F6" />
+            <circle cx="215" cy="102" r="4" fill="#3B82F6" />
           </motion.g>
         </motion.g>
       </motion.g>
       {/* Annotations */}
-      <g fontFamily="'JetBrains Mono', monospace" fontSize="8" fill="#38bdf8" fillOpacity="0.6">
+      <g fontFamily="'JetBrains Mono', monospace" fontSize="8" fill="#3B82F6" fillOpacity="0.6">
         <text x="225" y="240">DOF-1: ±180°</text>
         <text x="225" y="178">DOF-2: ±120°</text>
         <text x="225" y="128">DOF-3: ±90°</text>
         <text x="60" y="270">BASE PLATE</text>
-        <line x1="160" y1="268" x2="120" y2="268" stroke="#38bdf8" strokeOpacity="0.3" strokeWidth="0.75" />
+        <line x1="160" y1="268" x2="120" y2="268" stroke="#3B82F6" strokeOpacity="0.3" strokeWidth="0.75" />
       </g>
       {/* Grid dots */}
       {Array.from({ length: 8 }).map((_, row) =>
         Array.from({ length: 10 }).map((_, col) => (
           <circle key={`${row}-${col}`} cx={20 + col * 40} cy={20 + row * 35}
-            r="1" fill="#38bdf8" fillOpacity="0.06" />
+            r="1" fill="#3B82F6" fillOpacity="0.06" />
         ))
       )}
     </svg>
@@ -719,12 +728,12 @@ function AutonomousSVG() {
     <svg viewBox="0 0 400 300" className="w-full h-full p-8" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <radialGradient id="robotDot" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+          <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
         </radialGradient>
       </defs>
       {/* Grid floor */}
-      <g stroke="#38bdf8" strokeWidth="0.5" strokeOpacity="0.08">
+      <g stroke="#3B82F6" strokeWidth="0.5" strokeOpacity="0.08">
         {Array.from({ length: 8 }).map((_, i) => (
           <g key={i}>
             <line x1={0} y1={i * 40} x2={400} y2={i * 40} />
@@ -735,7 +744,7 @@ function AutonomousSVG() {
       {/* Path taken */}
       <motion.path
         d="M60,240 C80,240 80,180 140,180 C200,180 220,120 280,120 C330,120 350,80 370,60"
-        stroke="#38bdf8" strokeWidth="2" fill="none" strokeDasharray="4 4"
+        stroke="#3B82F6" strokeWidth="2" fill="none" strokeDasharray="4 4"
         strokeOpacity="0.5"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
@@ -744,7 +753,7 @@ function AutonomousSVG() {
       {/* Obstacles */}
       {[[120, 140], [230, 200], [310, 100]].map(([x, y]) => (
         <rect key={`${x}-${y}`} x={x - 15} y={y - 15} width="30" height="30"
-          rx="4" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />
+          rx="4" fill="#3A3A3A" stroke="#f59e0b" strokeWidth="1.5" />
       ))}
       {/* Robot position */}
       <motion.g
@@ -755,27 +764,27 @@ function AutonomousSVG() {
         transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
       >
         <circle cx="60" cy="240" r="16" fill="url(#robotDot)" />
-        <circle cx="60" cy="240" r="9" fill="#0d1a2e" stroke="#38bdf8" strokeWidth="2" />
+        <circle cx="60" cy="240" r="9" fill="#0d1a2e" stroke="#3B82F6" strokeWidth="2" />
         {/* LiDAR sweep */}
         <motion.g style={{ transformOrigin: "60px 240px" }}
           animate={{ rotate: 360 }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}>
           <path d="M60,240 L60,215 A25,25 0 0,1 81,250 Z"
-            fill="#38bdf8" fillOpacity="0.12" />
+            fill="#3B82F6" fillOpacity="0.12" />
         </motion.g>
       </motion.g>
       {/* Waypoints */}
       {[[140, 180], [280, 120], [370, 60]].map(([x, y], i) => (
         <g key={i}>
-          <circle cx={x} cy={y} r="6" fill="none" stroke="#818cf8" strokeWidth="1.5" />
-          <circle cx={x} cy={y} r="2.5" fill="#818cf8" />
+          <circle cx={x} cy={y} r="6" fill="none" stroke="#818CF8" strokeWidth="1.5" />
+          <circle cx={x} cy={y} r="2.5" fill="#818CF8" />
           <text x={x + 12} y={y + 4} fontFamily="'JetBrains Mono', monospace"
-            fontSize="7.5" fill="#818cf8" fillOpacity="0.7">WP-{i + 1}</text>
+            fontSize="7.5" fill="#818CF8" fillOpacity="0.7">WP-{i + 1}</text>
         </g>
       ))}
       {/* Label */}
       <text x="20" y="20" fontFamily="'JetBrains Mono', monospace"
-        fontSize="8" fill="#38bdf8" fillOpacity="0.5">ROS2 · Nav2 · SLAM Toolbox</text>
+        fontSize="8" fill="#3B82F6" fillOpacity="0.5">ROS2 · Nav2 · SLAM Toolbox</text>
     </svg>
   );
 }
@@ -799,7 +808,7 @@ function CaseStudy() {
 
   return (
     <section id="casestudy" className="py-24 relative" style={{ backgroundImage: blueprintBg }}>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080c14] via-transparent to-[#080c14] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1F1F1F] via-transparent to-[#1F1F1F] pointer-events-none" />
       <div className="max-w-6xl mx-auto px-6 relative">
         <Reveal className="text-center mb-16">
           <SectionLabel>Engineering Deep Dive</SectionLabel>
@@ -818,9 +827,9 @@ function CaseStudy() {
                 whileHover={{ y: -4, borderColor: "rgba(56,189,248,0.3)" }}
                 style={{ borderColor: "rgba(148,163,184,0.08)" }}
                 transition={{ duration: 0.2 }}
-                className="p-6 rounded-2xl border bg-[#0d1220] h-full"
+                className="p-6 rounded-2xl border border-white/[0.12] bg-gradient-to-br from-[#2F2F2F] to-[#2A2A2A] h-full hover:border-[#3B82F6]/30 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.1)] group relative overflow-hidden"
               >
-                <div className="text-[#38bdf8] font-mono text-xs mb-3 opacity-60">{s.n}</div>
+                <div className="text-[#3B82F6] font-mono text-xs mb-3 opacity-60">{s.n}</div>
                 <h3 className="font-['Space_Grotesk'] font-semibold text-white text-base mb-3">{s.title}</h3>
                 <p className="text-white/45 font-['Inter'] text-sm leading-relaxed">{s.desc}</p>
               </motion.div>
@@ -831,7 +840,9 @@ function CaseStudy() {
         {/* Wiring diagram + metrics */}
         <div className="grid md:grid-cols-5 gap-6">
           <Reveal className="md:col-span-3" delay={0.1}>
-            <div className="rounded-2xl border border-white/[0.07] bg-[#0d1220] p-2 aspect-[4/3]">
+            <div className="rounded-2xl border border-white/[0.12] bg-gradient-to-br from-[#2F2F2F] via-[#2A2A2A] to-[#282828] p-2 aspect-[4/3] shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-[#3B82F6]/30 transition-all duration-300 relative overflow-hidden group">
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <PCBLayoutSVG />
             </div>
           </Reveal>
@@ -845,7 +856,7 @@ function CaseStudy() {
                 <motion.div
                   whileHover={{ borderColor: "rgba(56,189,248,0.2)" }}
                   style={{ borderColor: "rgba(148,163,184,0.08)" }}
-                  className="p-5 rounded-2xl border bg-[#0d1220]"
+                  className="p-5 rounded-2xl border border-white/[0.12] bg-gradient-to-br from-[#2F2F2F] to-[#2A2A2A] hover:border-[#3B82F6]/30 transition-all duration-300 hover:shadow-[0_4px_20px_rgba(59,130,246,0.1)]"
                 >
                   <div className="text-2xl font-['Space_Grotesk'] font-bold text-white mb-1">{m.val}</div>
                   <div className="text-xs font-['Inter'] text-white/40">{m.label}</div>
@@ -915,9 +926,11 @@ function Skills() {
                 whileHover={{ y: -3, borderColor: "rgba(56,189,248,0.2)" }}
                 style={{ borderColor: "rgba(148,163,184,0.08)" }}
                 transition={{ duration: 0.2 }}
-                className="p-7 rounded-2xl border bg-[#0d1220] group h-full"
+                className="p-7 rounded-2xl border border-white/[0.12] bg-gradient-to-br from-[#2F2F2F] to-[#2A2A2A] group h-full hover:border-[#3B82F6]/30 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.1)] relative overflow-hidden"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] mb-5 group-hover:bg-[#38bdf8]/15 transition-colors">
+                {/* Subtle gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] mb-5 group-hover:bg-[#3B82F6]/15 transition-colors">
                   {cat.icon}
                 </div>
                 <h3 className="font-['Space_Grotesk'] font-semibold text-white text-base mb-4">
@@ -926,7 +939,7 @@ function Skills() {
                 <ul className="flex flex-col gap-2">
                   {cat.skills.map((s) => (
                     <li key={s} className="flex items-center gap-2.5 text-sm text-white/50 font-['Inter']">
-                      <span className="w-1 h-1 rounded-full bg-[#38bdf8] opacity-50 flex-shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-[#3B82F6] opacity-50 flex-shrink-0" />
                       {s}
                     </li>
                   ))}
@@ -994,17 +1007,17 @@ function Timeline() {
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 top-2 bottom-2 w-px bg-gradient-to-b from-[#38bdf8] via-[#818cf8]/50 to-transparent" />
+          <div className="absolute left-6 top-2 bottom-2 w-px bg-gradient-to-b from-[#3B82F6] via-[#818CF8]/50 to-transparent" />
 
           <div className="flex flex-col gap-0">
             {timeline.map((item, i) => (
               <Reveal key={item.company} delay={i * 0.1}>
                 <div className="relative pl-16 pb-14">
                   {/* Timeline dot */}
-                  <div className={`absolute left-3.5 top-1.5 w-5 h-5 rounded-full border-2 flex items-center justify-center ${item.current ? "border-[#38bdf8] bg-[#38bdf8]/20" : "border-white/20 bg-[#080c14]"}`}>
+                  <div className={`absolute left-3.5 top-1.5 w-5 h-5 rounded-full border-2 flex items-center justify-center ${item.current ? "border-[#3B82F6] bg-[#3B82F6]/20" : "border-white/20 bg-[#1F1F1F]"}`}>
                     {item.current && (
                       <motion.div
-                        className="w-2 h-2 rounded-full bg-[#38bdf8]"
+                        className="w-2 h-2 rounded-full bg-[#3B82F6]"
                         animate={{ scale: [1, 1.3, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       />
@@ -1014,12 +1027,12 @@ function Timeline() {
                   <motion.div
                     whileHover={{ borderColor: "rgba(56,189,248,0.2)" }}
                     style={{ borderColor: "rgba(148,163,184,0.08)" }}
-                    className="p-7 rounded-2xl border bg-[#0d1220]"
+                    className="p-7 rounded-2xl border border-white/[0.12] bg-gradient-to-br from-[#2F2F2F] to-[#2A2A2A] hover:border-[#3B82F6]/30 transition-all duration-300 hover:shadow-[0_4px_20px_rgba(59,130,246,0.08)]"
                   >
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                       <div>
                         <div className="font-['Space_Grotesk'] font-semibold text-white text-lg">{item.role}</div>
-                        <div className="text-[#38bdf8] text-sm font-medium font-['Inter'] mt-0.5">{item.company}</div>
+                        <div className="text-[#3B82F6] text-sm font-medium font-['Inter'] mt-0.5">{item.company}</div>
                       </div>
                       <div className="flex flex-col items-end gap-1">
                         <div className="flex items-center gap-1.5 text-xs text-white/35 font-mono">
@@ -1035,7 +1048,7 @@ function Timeline() {
                     <p className="text-white/45 font-['Inter'] text-sm leading-relaxed mb-4">{item.desc}</p>
                     <div className="flex flex-wrap gap-2">
                       {item.tags.map((t) => (
-                        <span key={t} className="px-2.5 py-0.5 text-xs font-mono text-[#818cf8] border border-[#818cf8]/20 rounded-full bg-[#818cf8]/[0.05]">
+                        <span key={t} className="px-2.5 py-0.5 text-xs font-mono text-[#818CF8] border border-[#818CF8]/20 rounded-full bg-[#818CF8]/[0.05]">
                           {t}
                         </span>
                       ))}
@@ -1056,18 +1069,53 @@ function Timeline() {
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    setError("");
+
+    try {
+      // Get credentials from environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Validate that environment variables are set
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS credentials not configured. Please check your .env file.");
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: form.name,
+          email: form.email,
+          message: form.message,
+          to_name: "Shoumant",
+        },
+        publicKey
+      );
+
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setError("Failed to send message. Please try again or email me directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputClass =
-    "w-full px-4 py-3.5 rounded-xl bg-[#0d1220] border border-white/[0.08] text-white font-['Inter'] text-sm placeholder:text-white/25 focus:outline-none focus:border-[#38bdf8]/50 transition-colors";
+    "w-full px-4 py-3.5 rounded-xl bg-[#2F2F2F] border border-white/[0.08] text-white font-['Inter'] text-sm placeholder:text-white/25 focus:outline-none focus:border-[#3B82F6]/50 transition-colors";
 
   return (
     <section id="contact" className="py-24 relative" style={{ backgroundImage: blueprintBg }}>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080c14] via-transparent to-[#080c14] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1F1F1F] via-transparent to-[#1F1F1F] pointer-events-none" />
       <div className="max-w-5xl mx-auto px-6 relative">
         <div className="grid md:grid-cols-2 gap-16">
           {/* Left */}
@@ -1085,9 +1133,9 @@ function Contact() {
 
             <div className="flex flex-col gap-4">
               {[
-                { icon: <Mail size={16} />, label: "kai.nakamura@email.com", href: "mailto:kai.nakamura@email.com" },
-                { icon: <Linkedin size={16} />, label: "linkedin.com/in/kainakamura", href: "https://linkedin.com" },
-                { icon: <Github size={16} />, label: "github.com/kainakamura", href: "https://github.com" },
+                { icon: <Mail size={16} />, label: "khadkashoumant201@gmail.com", href: "mailto:khadkashoumant201@gmail.com" },
+                { icon: <Linkedin size={16} />, label: "linkedin.com/in/shoumant-khadka", href: "https://linkedin.com/in/shoumant-khadka/" },
+                { icon: <Github size={16} />, label: "github.com/Shoumant201", href: "https://github.com/Shoumant201" },
               ].map((contact) => (
                 <a
                   key={contact.label}
@@ -1096,7 +1144,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-white/50 hover:text-white font-['Inter'] text-sm transition-colors group"
                 >
-                  <span className="w-9 h-9 rounded-xl bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#38bdf8] group-hover:bg-white/[0.08] transition-colors">
+                  <span className="w-9 h-9 rounded-xl bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#3B82F6] group-hover:bg-white/[0.08] transition-colors">
                     {contact.icon}
                   </span>
                   {contact.label}
@@ -1105,7 +1153,7 @@ function Contact() {
             </div>
 
             {/* Availability badge */}
-            <div className="mt-10 inline-flex items-center gap-3 px-5 py-3 rounded-2xl border border-[#22c55e]/25 bg-[#22c55e]/[0.05]">
+            <div className="mt-10 inline-flex items-center gap-3 px-5 py-3 rounded-2xl border border-[#22c55e]/30 bg-gradient-to-r from-[#22c55e]/[0.08] to-[#22c55e]/[0.05] shadow-[0_0_20px_rgba(34,197,94,0.1)]">
               <motion.div
                 className="w-2 h-2 rounded-full bg-[#22c55e]"
                 animate={{ opacity: [1, 0.3, 1] }}
@@ -1119,7 +1167,9 @@ function Contact() {
 
           {/* Right — form */}
           <Reveal delay={0.15}>
-            <div className="p-8 rounded-2xl border border-white/[0.07] bg-[#0d1220]">
+            <div className="p-8 rounded-2xl border border-white/[0.12] bg-gradient-to-br from-[#2F2F2F] via-[#2A2A2A] to-[#282828] shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden">
+              {/* Decorative gradient */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#3B82F6]/[0.08] to-transparent rounded-full blur-3xl pointer-events-none" />
               {sent ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -1135,7 +1185,12 @@ function Contact() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 relative z-10">
+                  {error && (
+                    <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
+                      {error}
+                    </div>
+                  )}
                   <div>
                     <label className="text-xs text-white/40 font-mono mb-2 block uppercase tracking-widest">Name</label>
                     <input
@@ -1145,6 +1200,7 @@ function Contact() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       required
+                      disabled={sending}
                     />
                   </div>
                   <div>
@@ -1156,6 +1212,7 @@ function Contact() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       required
+                      disabled={sending}
                     />
                   </div>
                   <div>
@@ -1167,17 +1224,27 @@ function Contact() {
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       required
+                      disabled={sending}
                     />
                   </div>
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    className="mt-2 px-6 py-4 bg-[#38bdf8] text-[#020617] font-['Inter'] font-semibold rounded-xl hover:bg-[#7dd3fc] transition-colors inline-flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(56,189,248,0.25)]"
+                    whileHover={{ scale: sending ? 1 : 1.01 }}
+                    whileTap={{ scale: sending ? 1 : 0.99 }}
+                    disabled={sending}
+                    className={`mt-2 px-6 py-4 bg-[#3B82F6] text-white font-['Inter'] font-semibold rounded-xl hover:bg-[#60A5FA] transition-colors inline-flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(59,130,246,0.25)] ${sending ? "opacity-50 cursor-not-allowed" : ""}`}
                   >
-                    Send Message
-                    <Send size={15} />
+                    {sending ? "Sending..." : "Send Message"}
+                    <Send size={15} className={sending ? "animate-pulse" : ""} />
                   </motion.button>
+                  
+                  {/* Alternative: Direct email link */}
+                  <p className="text-xs text-white/30 text-center mt-2">
+                    Or email directly at{" "}
+                    <a href="mailto:khadkashoumant201@gmail.com" className="text-[#3B82F6] hover:text-[#60A5FA]">
+                      khadkashoumant201@gmail.com
+                    </a>
+                  </p>
                 </form>
               )}
             </div>
@@ -1195,12 +1262,12 @@ function Footer() {
     <footer className="border-t border-white/[0.06] py-10">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="font-['Space_Grotesk'] font-bold text-white/30 text-sm tracking-tight">
-          <span className="text-[#38bdf8]/50">KAI</span>
+          <span className="text-[#3B82F6]/50">SHOUMANT</span>
           <span className="text-white/20 font-light mx-1">/</span>
-          <span>NAKAMURA</span>
+          <span>KHADKA</span>
         </div>
         <div className="text-xs font-mono text-white/20">
-          Robotics Engineer · Embedded Systems · San Francisco
+          Robotics Engineer · Embedded Systems · Kathmandu, Nepal
         </div>
         <div className="text-xs font-mono text-white/15">
           © {new Date().getFullYear()} All rights reserved.
@@ -1242,7 +1309,7 @@ const projects: Project[] = [
 
 export default function App() {
   return (
-    <div className="bg-[#080c14] text-foreground overflow-x-hidden">
+    <div className="bg-[#1F1F1F] text-foreground overflow-x-hidden">
       <Nav />
       <Hero />
 
